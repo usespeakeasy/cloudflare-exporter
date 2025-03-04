@@ -26,15 +26,9 @@ jobs:
         with:
           images: |
             lablabs/cloudflare_exporter
-            ghcr.io/lablabs/cloudflare_exporter
+            ghcr.io/${{ github.repository_owner}}/cloudflare_exporter
           # generate Docker tags based on the following events/attributes
           tags: type=ref,event=tag
-
-      - name: Login to DockerHub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Login to Github Packages
         uses: docker/login-action@v3
